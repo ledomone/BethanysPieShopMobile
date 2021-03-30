@@ -4,12 +4,14 @@ using BethanysPieShopMobile.Core.Model;
 using BethanysPieShopMobile.Core.Repository;
 using BethanysPieShopMobile.Utility;
 using BethanysPieShopMobile.ViewHolders;
+using System;
 using System.Collections.Generic;
 
 namespace BethanysPieShopMobile.Adapters
 {
     public class PieAdapter : RecyclerView.Adapter
     {
+        public event EventHandler<int> ItemClick;
         private List<Pie> _pies;
 
         public PieAdapter()
@@ -33,8 +35,14 @@ namespace BethanysPieShopMobile.Adapters
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.pie_viewholder, parent, false);
-            PieViewHolder pieViewHolder = new PieViewHolder(itemView);
+            PieViewHolder pieViewHolder = new PieViewHolder(itemView, OnClick);
             return pieViewHolder;
+        }
+
+        private void OnClick(int position)
+        {
+            var pieId = _pies[position].PieId;
+            ItemClick?.Invoke(this, pieId);
         }
     }
 }
