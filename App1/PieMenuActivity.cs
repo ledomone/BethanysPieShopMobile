@@ -5,7 +5,7 @@ using BethanysPieShopMobile.Adapters;
 
 namespace BethanysPieShopMobile
 {
-    [Activity(Label = "PieMenuActivity", MainLauncher = true)]
+    [Activity(Label = "PieMenuActivity")]
     public class PieMenuActivity : Activity
     {
         private RecyclerView _pieRecyclerView;

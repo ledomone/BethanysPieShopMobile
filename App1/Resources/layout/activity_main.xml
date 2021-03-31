@@ -5,10 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-    <Button
-        android:text="Button"
+    android:orientation="vertical"
+    android:background="@drawable/patternwide">
+    <ImageView
+        android:src="@drawable/bethanylogo"
         android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/logoImageView"
+        android:layout_marginTop="10dp"/>
+    <Button
+        android:text="Order pies"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/MyButton" />
+        android:id="@+id/orderButton"
+        android:backgroundTint="#23cfa7"
+        android:textColor="#ffffff"
+        android:layout_gravity="center_horizontal"
+        android:width="200dp" />
 </LinearLayout>
