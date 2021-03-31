@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Support.V7.Widget;
 using BethanysPieShopMobile.Adapters;
@@ -22,8 +23,17 @@ namespace BethanysPieShopMobile
             _pieLayoutManager = new LinearLayoutManager(this);
             _pieRecyclerView.SetLayoutManager(_pieLayoutManager);
             _pieAdapter = new PieAdapter();
+            _pieAdapter.ItemClick += _pieAdapter_ItemClick;
             _pieRecyclerView.SetAdapter(_pieAdapter);
 
+        }
+
+        private void _pieAdapter_ItemClick(object sender, int e)
+        {
+            var intent = new Intent();
+            intent.SetClass(this, typeof(PieDetailActivity));
+            intent.PutExtra("selectedPieId", e);
+            StartActivity(intent);
         }
     }
 }

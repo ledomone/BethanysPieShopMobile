@@ -26,7 +26,8 @@ namespace BethanysPieShopMobile
             SetContentView(Resource.Layout.pie_detail);
             // Create your application here
             _pieRepository = new PieRepository();
-            _selectedPie = _pieRepository.GetPieById(1);
+            var selectedPieId = Intent.Extras.GetInt("selectedPieId");
+            _selectedPie = _pieRepository.GetPieById(selectedPieId);
             FindViews();
             BindData();
         }
