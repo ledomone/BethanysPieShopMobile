@@ -1,13 +1,8 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace BethanysPieShopMobile
 {
@@ -15,6 +10,7 @@ namespace BethanysPieShopMobile
     public class MainActivity : Activity
     {
         private Button _orderButton;
+        private Button _shoppingCartButton;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -29,6 +25,13 @@ namespace BethanysPieShopMobile
         private void LinkEventHandlers()
         {
             _orderButton.Click += _orderButton_Click;
+            _shoppingCartButton.Click += _shoppingCartButton_Click;
+        }
+
+        private void _shoppingCartButton_Click(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(CartActivity));
+            StartActivity(intent);
         }
 
         private void _orderButton_Click(object sender, EventArgs e)
@@ -40,6 +43,7 @@ namespace BethanysPieShopMobile
         private void FindViews()
         {
             _orderButton = FindViewById<Button>(Resource.Id.orderButton);
+            _shoppingCartButton = FindViewById<Button>(Resource.Id.shoppingCartButton);
         }
     }
 }

@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\PieAdapter.cs" />
+    <Compile Include="CartActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="PieDetailActivity.cs" />
     <Compile Include="PieMenuActivity.cs" />
@@ -157,6 +158,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\bethanylogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\cart.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
