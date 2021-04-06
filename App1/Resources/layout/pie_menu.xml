@@ -13,8 +13,8 @@
         android:id="@+id/titleTextView" 
         android:layout_margin="10dp"/>
     <android.support.v7.widget.RecyclerView
-        android:layout_height="fill_parent"
-        android:layout_width="fill_parent" 
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
         android:id="@+id/pieMenuRecyclerView"
         android:layout_margin="5dp"
         android:scrollbars="vertical"/>
