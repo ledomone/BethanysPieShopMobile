@@ -30,6 +30,7 @@ namespace BethanysPieShopMobile
             _selectedPie = _pieRepository.GetPieById(selectedPieId);
             FindViews();
             BindData();
+            LinkEventHandlers();
         }
 
         private void BindData()
@@ -52,6 +53,22 @@ namespace BethanysPieShopMobile
             _priceTextView = FindViewById<TextView>(Resource.Id.priceTextView);
             _amountEditText = FindViewById<EditText>(Resource.Id.amountEditText);
             _addToCartButton = FindViewById<Button>(Resource.Id.addToCartButton);
+        }
+
+        private void LinkEventHandlers()
+        {
+            _addToCartButton.Click += _addToCartButton_Click;
+        }
+
+        private void _addToCartButton_Click(object sender, System.EventArgs e)
+        {
+            var amount = int.Parse(_amountEditText.Text);
+
+            ShoppingCartRepository shoppingCartRepository = new ShoppingCartRepository();
+            shoppingCartRepository.AddToShoppingCart(_selectedPie, amount);
+            Toast.MakeText(Application.Context, "Pie added to cart", ToastLength.Long).Show();
+
+            this.Finish();
         }
     }
 }

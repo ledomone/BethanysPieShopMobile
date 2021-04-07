@@ -1,6 +1,8 @@
 ﻿using Android.Support.V7.Widget;
 using Android.Views;
 using BethanysPieShopMobile.Core.Repository;
+using BethanysPieShopMobile.Utility;
+using BethanysPieShopMobile.ViewHolders;
 using System;
 
 namespace BethanysPieShopMobile.Adapters
@@ -18,12 +20,27 @@ namespace BethanysPieShopMobile.Adapters
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            throw new NotImplementedException();
+            if (holder is CartViewHolder cartViewHolder)
+            {
+                var cartItem = _shoppingCartRepository.GetAllShoppingCartItems()[position];
+                cartViewHolder.PieNameTextView.Text = cartItem.Pie.Name;
+                cartViewHolder.PieAmountTextView.Text = cartItem.Amount.ToString();
+
+                var imageBitmap = ImageHelper.GetImageBitmapFromUrl(cartItem.Pie.ImageThumbnailUrl);
+                cartViewHolder.PieImageView.SetImageBitmap(imageBitmap);
+            }
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            throw new NotImplementedException();
+            View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.cart_viewholder, parent, false);
+            CartViewHolder cartViewHolder = new CartViewHolder(itemView, OnClick);
+            return cartViewHolder;
+        }
+
+        private void OnClick(int obj)
+        {
+            //not needed here
         }
     }
 }
