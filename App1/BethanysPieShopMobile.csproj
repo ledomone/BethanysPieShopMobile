@@ -66,6 +66,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutActivity.cs" />
     <Compile Include="Adapters\PieAdapter.cs" />
     <Compile Include="Adapters\ShoppingCartAdapter.cs" />
     <Compile Include="CartActivity.cs" />
@@ -168,6 +169,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\cart_viewholder.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\about.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

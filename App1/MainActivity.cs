@@ -11,6 +11,7 @@ namespace BethanysPieShopMobile
     {
         private Button _orderButton;
         private Button _shoppingCartButton;
+        private Button _aboutButton;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -26,6 +27,13 @@ namespace BethanysPieShopMobile
         {
             _orderButton.Click += _orderButton_Click;
             _shoppingCartButton.Click += _shoppingCartButton_Click;
+            _aboutButton.Click += _aboutButton_Click;
+        }
+
+        private void _aboutButton_Click(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(AboutActivity));
+            StartActivity(intent);
         }
 
         private void _shoppingCartButton_Click(object sender, EventArgs e)
@@ -44,6 +52,7 @@ namespace BethanysPieShopMobile
         {
             _orderButton = FindViewById<Button>(Resource.Id.orderButton);
             _shoppingCartButton = FindViewById<Button>(Resource.Id.shoppingCartButton);
+            _aboutButton = FindViewById<Button>(Resource.Id.aboutButton);
         }
     }
 }
